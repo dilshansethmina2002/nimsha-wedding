@@ -25,7 +25,7 @@ export const Hero = ({ onOpenInvitation, opened }: Props) => {
           alt=""
           loading="lazy"
           // Removed mix-blend-multiply/screen to prevent lag. Opacity adjusted to compensate.
-          className="w-full h-full object-cover opacity-60 dark:opacity-20"
+          className="w-full h-full object-cover opacity-90 dark:opacity-80"
           width={1536}
           height={1920}
         />
