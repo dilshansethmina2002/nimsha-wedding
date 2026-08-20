@@ -22,6 +22,11 @@ export const Footer = () => {
         <div className="w-[40rem] h-[20rem] border-t-[1px] border-primary/20 rounded-t-full translate-y-1/2" />
       </div>
 
+      {/* --- NEW: BOTTOM CORNER FLOWERS --- */}
+      <FlowerCorner className="absolute bottom-0 left-0 w-32 md:w-48 lg:w-56 text-[#cda052] opacity-40 dark:opacity-20 pointer-events-none z-0 transform-gpu" />
+      <FlowerCorner className="absolute bottom-0 right-0 w-32 md:w-48 lg:w-56 text-[#cda052] opacity-40 dark:opacity-20 pointer-events-none scale-x-[-1] z-0 transform-gpu" />
+      {/* ---------------------------------- */}
+
       <div className="container text-center relative z-10">
         <Ornament className="text-primary w-40 md:w-48 mx-auto mb-8 opacity-80" />
         
@@ -72,3 +77,37 @@ export const Footer = () => {
     </footer>
   );
 };
+
+// --- ELEGANT FLOWER CORNER COMPONENT ---
+// This uses clean SVG paths to draw beautiful, classic floral corners without causing lag.
+const FlowerCorner = ({ className = "" }: { className?: string }) => (
+  <svg viewBox="0 0 100 100" className={className} fill="currentColor" aria-hidden="true">
+    {/* Main Stem */}
+    <path d="M 0,100 C 10,80 30,50 60,30" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M 0,100 C 30,95 60,80 80,50" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    
+    {/* Flower 1 (Top) */}
+    <path d="M 55,25 C 50,20 60,10 65,15 C 70,20 60,30 55,25 Z" />
+    <path d="M 60,30 C 50,35 45,25 50,20 C 55,15 65,25 60,30 Z" />
+    <path d="M 65,25 C 75,20 70,10 65,15 C 60,10 55,20 65,25 Z" />
+    <circle cx="60" cy="22" r="2.5" fill="currentColor" />
+
+    {/* Flower 2 (Bottom Right) */}
+    <path d="M 75,45 C 70,40 80,30 85,35 C 90,40 80,50 75,45 Z" />
+    <path d="M 80,50 C 70,55 65,45 70,40 C 75,35 85,45 80,50 Z" />
+    <path d="M 85,45 C 95,40 90,30 85,35 C 80,30 75,40 85,45 Z" />
+    <circle cx="80" cy="42" r="2.5" fill="currentColor" />
+
+    {/* Decorative Leaves */}
+    <path d="M 15,85 C 20,70 10,65 5,75 C 0,85 10,90 15,85 Z" opacity="0.8" />
+    <path d="M 30,70 C 45,60 40,50 30,55 C 20,60 20,75 30,70 Z" opacity="0.8" />
+    <path d="M 40,90 C 55,85 60,75 50,75 C 40,75 35,95 40,90 Z" opacity="0.8" />
+    
+    {/* Elegant Dots */}
+    <circle cx="45" cy="45" r="1.5" />
+    <circle cx="25" cy="45" r="1" />
+    <circle cx="55" cy="65" r="1.5" />
+    <circle cx="35" cy="25" r="1" opacity="0.5" />
+    <circle cx="85" cy="20" r="1" opacity="0.5" />
+  </svg>
+);
