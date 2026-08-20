@@ -56,12 +56,14 @@ export const Countdown = () => {
 
       {/* --- CUTE COUPLE ART BACKGROUND --- */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 flex items-center justify-center isolate">
-        {/* Increased opacity to 50% so the couple is more visible like in the reference image */}
-        <div className="relative w-[300px] md:w-[450px] opacity-50 dark:opacity-40 translate-y-11">
-          <img 
+        <div className="relative w-[300px] md:w-[450px] opacity-50 dark:opacity-40 translate-y-12">
+          {/* NEW: Gentle floating animation tailored for mobile GPUs */}
+          <motion.img 
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             src={coupleArt} 
             alt="Bride and Groom Background" 
-            className="w-full h-full object-contain"
+            className="w-full h-full object-contain transform-gpu will-change-transform"
           />
         </div>
       </div>
@@ -88,11 +90,11 @@ export const Countdown = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              // CHANGED: Reduced background color to bg-white/5 and blur to backdrop-blur-sm for highly transparent glass
-              className="relative glass-card bg-white/5 dark:bg-white/5 backdrop-blur-sm rounded-[2rem] p-6 md:p-8 flex flex-col items-center justify-center border border-white/30 dark:border-white/10 shadow-sm overflow-hidden group hover:border-primary/40 transition-colors transform-gpu"
+              // NEW: Added hover:-translate-y-2 and hover:shadow-lg for an elegant lift effect
+              className="relative glass-card bg-white/5 dark:bg-white/5 backdrop-blur-sm rounded-[2rem] p-6 md:p-8 flex flex-col items-center justify-center border border-white/30 dark:border-white/10 shadow-sm overflow-hidden group hover:border-primary/40 hover:-translate-y-2 hover:shadow-lg transition-all duration-500 transform-gpu cursor-default"
             >
               {/* Card Hover Effect */}
-              <div className="absolute inset-0 rounded-[2rem] bg-gold-gradient opacity-0 group-hover:opacity-10 transition-opacity" />
+              <div className="absolute inset-0 rounded-[2rem] bg-gold-gradient opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
               
               {/* Lotus Corners for each card */}
               <LotusCorner className="absolute top-3 left-3 w-8 text-primary/40" />
