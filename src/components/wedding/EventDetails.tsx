@@ -91,25 +91,32 @@ export const EventDetails = () => {
 
                 {/* Coordinator Contact */}
                 <div className="mt-8 w-full flex flex-col items-center relative z-10 transition-colors duration-500">
-                   <div className={`text-[#cda052] uppercase mb-3 ${isEn ? "font-display text-[9px] tracking-[0.25em]" : "font-sinhala font-bold text-[10px] tracking-wider"}`}>
-                     {isEn ? "Coordinator" : "සම්බන්ධීකාරක"}
-                   </div>
-                   
-                   <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 transition-colors duration-500">
-                     <div className="flex items-center justify-center w-7 h-7 shrink-0 rounded-full bg-white dark:bg-stone-900 border border-[#e5d8c5] dark:border-stone-700 shadow-sm transition-colors duration-500">
-                       <FaPhone className="text-[#cda052] w-3 h-3" />
-                     </div>
-                     <div className="flex flex-col sm:flex-row items-center sm:gap-2 text-center transition-colors duration-500">
-                       <span className={`text-[#4a4540] dark:text-stone-200 font-medium ${isEn ? "font-serif text-[14px]" : "font-sinhala text-sm"}`}>
-                         {wedding.contact.name}
-                       </span>
-                       <span className="hidden sm:inline-block text-[#cda052]/50 text-[10px]">•</span>
-                       <span className={`text-[#7a746e] dark:text-stone-400 ${isEn ? "font-serif text-[13px] tracking-wide" : "font-sans text-xs tracking-wider"}`}>
-                         {wedding.contact.phone}
-                       </span>
-                     </div>
-                   </div>
+                <div className={`text-[#cda052] uppercase mb-3 ${isEn ? "font-display text-[9px] tracking-[0.25em]" : "font-sinhala font-bold text-[10px] tracking-wider"}`}>
+                  {isEn ? "Coordinator" : "සම්බන්ධීකාරක"}
                 </div>
+                
+                {/* CHANGED: Converted to an <a> tag with 'tel:' link and added interactive hover/tap animations */}
+                <a 
+                  href={`tel:${wedding.contact.phone}`}
+                  aria-label="Call Coordinator"
+                  className="group flex flex-col sm:flex-row items-center gap-3 sm:gap-4 p-2 -m-2 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+                >
+                  {/* Added group-hover border/shadow to the icon circle so it reacts to the click */}
+                  <div className="flex items-center justify-center w-7 h-7 shrink-0 rounded-full bg-white dark:bg-stone-900 border border-[#e5d8c5] dark:border-stone-700 shadow-sm transition-all duration-300 group-hover:border-[#cda052] group-hover:shadow-md">
+                    <FaPhone className="text-[#cda052] w-3 h-3 group-hover:animate-pulse" />
+                  </div>
+                  
+                  <div className="flex flex-col sm:flex-row items-center sm:gap-2 text-center transition-colors duration-500">
+                    <span className={`text-[#4a4540] dark:text-stone-200 font-medium transition-colors group-hover:text-[#cda052] ${isEn ? "font-serif text-[14px]" : "font-sinhala text-sm"}`}>
+                      {wedding.contact.name}
+                    </span>
+                    <span className="hidden sm:inline-block text-[#cda052]/50 text-[10px]">•</span>
+                    <span className={`text-[#7a746e] dark:text-stone-400 transition-colors group-hover:text-foreground ${isEn ? "font-serif text-[13px] tracking-wide" : "font-sans text-xs tracking-wider"}`}>
+                      {wedding.contact.phone}
+                    </span>
+                  </div>
+                </a>
+              </div>
 
                
               </div>

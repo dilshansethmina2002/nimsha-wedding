@@ -54,7 +54,7 @@ export const wedding = {
     en: "Traditional",
     si: "සාම්ප්‍රදායික ඇඳුම්",
   },
-  contact: { name: "Gayan & Thathsarani", phone: "+94 707899049 / +94 713172985" },
+  contact: { name: "Gayan & Thathsarani", phone: "+94 713172985" },
 
   story: [
     { year: "2019", title: { en: "How We Met", si: "අපි මුණගැහුණා" }, text: { en: "A chance meeting that turned one conversation into endless ones.", si: "එක් කතා බසක් අනන්ත කතාබස් බවට පත් වූ අහඹු හමුවීමක්." } },
