@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { supabase } from '../../supabase';
 import toast from 'react-hot-toast';
 import { motion } from 'framer-motion';
+import { FaCalendarAlt } from 'react-icons/fa'; // Added Calendar Icon
 import { useWedding } from "@/lib/wedding-context"; 
 import { Ornament } from './Decorations';
 import { LotusDivider } from './Ornaments';
@@ -112,7 +113,7 @@ export default function RSVPForm() {
           <LotusCorner className="absolute bottom-2 left-2 w-12 text-primary/20 scale-y-[-1] pointer-events-none" />
           <LotusCorner className="absolute bottom-2 right-2 w-12 text-primary/20 scale-x-[-1] scale-y-[-1] pointer-events-none" />
           
-          <div className="text-center mb-10 relative z-10">
+          <div className="text-center mb-6 relative z-10">
             <h2 className="py-2 text-5xl md:text-6xl text-gold-gradient mb-2 font-semibold font-script drop-shadow-sm">
               RSVP
             </h2>
@@ -124,6 +125,33 @@ export default function RSVPForm() {
               {isEn ? "Please confirm your presence at our wedding" : "අපගේ විවාහ මංගල්‍යයට ඔබගේ පැමිණීම තහවුරු කරන්න"}
             </p>
           </div>
+
+          {/* --- FRIENDLY DEADLINE WARNING BANNER --- */}
+         <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            // CHANGED: Replaced amber with rose/red for a more reddish elegant tint
+            className="mb-8 mx-auto max-w-sm p-4 rounded-2xl bg-gradient-to-r from-rose-100/90 via-red-50/80 to-rose-100/90 dark:from-rose-950/40 dark:via-red-950/30 dark:to-rose-950/40 border border-rose-300/80 dark:border-rose-800/50 shadow-sm flex items-start sm:items-center gap-4 relative z-10"
+          >
+            <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white dark:bg-black/40 flex items-center justify-center border border-rose-200/60 shadow-sm mt-1 sm:mt-0">
+              {/* CHANGED: Made the calendar icon red to match the new background */}
+              <FaCalendarAlt className="text-rose-600 dark:text-rose-400 w-4 h-4 animate-pulse" />
+            </div>
+            <p className={`text-left text-[#5a4e40] dark:text-stone-300 ${isEn ? "font-serif text-[20px] leading-snug" : "font-sinhala text-[13px] leading-relaxed font-medium"}`}>
+              {isEn ? (
+                <>
+                  To help us finalize our preparations, kindly respond by <strong className="font-bold text-rose-700 dark:text-rose-400">September 24th</strong>.
+                </>
+              ) : (
+                <>
+                  අපගේ ඉදිරි කටයුතු පහසු කිරීම සඳහා, කරුණාකර ඔබගේ පැමිණීම <strong className="font-bold text-rose-700 dark:text-rose-400">සැප්තැම්බර් 24</strong> ට පෙර තහවුරු කරන්න.
+                </>
+              )}
+            </p>
+          </motion.div>
+          {/* ---------------------------------------- */}
           
           <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
             
