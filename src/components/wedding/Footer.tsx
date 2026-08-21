@@ -60,7 +60,7 @@ export const Footer = () => {
           className="mb-8 transform-gpu"
         >
           <p className={`text-foreground/70 italic ${isEn ? "font-serif text-lg" : "font-sinhala text-base"}`}>
-            {isEn ? "Thank you for being a part of our story." : "අපගේ ආදර කතාවේ කොටස්කරුවෙකු වීම ගැන ස්තූතියි."}
+            {isEn ? "Your presence is a great blessing to us  ." : "ඔබගේ පැමිණීම අපට මහත් ආශිර්වාදයකි."}
           </p>
         </motion.div>
 

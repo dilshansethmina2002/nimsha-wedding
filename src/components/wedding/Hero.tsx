@@ -60,7 +60,7 @@ export const Hero = ({ onOpenInvitation, opened }: Props) => {
           // Increased En size: text-xs md:text-base (was text-[10px] md:text-sm)
           className={`relative z-10 font-front uppercase text-primary-deep mb-6 mt-10 ${isEn ? "font-display text-xs md:text-base tracking-[0.3em]" : "font-sinhala text-sm md:text-base tracking-widest font-semibold"}`}
         >
-          {isEn ? "You are warmly invited" : "ඔබට ආදරයෙන් ආරාධනා කරමි"}
+          {isEn ? "You are warmly invited" : "ඔබට ආදරයෙන් ආරාධනා කරමු"}
         </motion.p>
 
         {/* Top Ornament */}
